@@ -18,12 +18,11 @@ if (!empty($_POST)) {
  if (!empty($name)) {
   if (!mysqli_query($con,$insert)) {
     echo"User Registation Feild";
-  }
  } else {
   echo '<script>alert("Please enter Your Fulfill details");</script>';
   // echo"enter your name";
  }
- 
+}
 }
 
 

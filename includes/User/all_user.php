@@ -54,6 +54,14 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+
+                                  <?php 
+                                  $sel="SELECT * FROM users";
+                                  $Q=mysqli_query($con,$sel);
+                                  while ($data=mysqli_fetch_assoc($Q)) {
+                                   
+                                  
+                                  ?>
                                     <tr>
                                       <td>Saidul Islam Uzzal</td>
                                       <td>01710726035</td>
@@ -71,6 +79,7 @@
                                           </div>
                                       </td>
                                     </tr>
+                                    <?php  } ?>
                                     <tr>
                                       <td>Creative System Limited</td>
                                       <td>01966999777</td>
