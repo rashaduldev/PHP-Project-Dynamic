@@ -1,8 +1,9 @@
 
 <?php 
-require_once('./includes/header.php');
+require_once('./includes/function/function.php');
+get_header();
 require_once('./includes/Login.php/login.php');
-require_once('./includes/footer.php');
+get_footer();
 
 ?>
    

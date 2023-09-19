@@ -1,13 +1,40 @@
 
 <?php 
-require_once('./includes/header.php');
-require_once('./includes/Sidebar.php');
+require_once('./includes/function/function.php');
+get_header();
+get_sideber();
+
+if (!empty($_POST)) {
+  $name=$_POST['name'];
+  $phone=$_POST['phone'];
+  $email=$_POST['email'];
+  $username=$_POST['username'];
+  $pw=md5($_POST['pass']);
+  $rpw=md5($_POST['repass']);
+
+  $insert="INSERT INTO users(user_name,user_phone,user_email,user_username,user_password) 
+  VALUES('$name', '$phone','$email', '$username','$pw')";
+
+ if (!empty($name)) {
+  if (!mysqli_query($con,$insert)) {
+    echo"User Registation Feild";
+  }
+ } else {
+  echo '<script>alert("Please enter Your Fulfill details");</script>';
+  // echo"enter your name";
+ }
+ 
+}
+
+
 require_once('./includes/Regi/registation.php');
-require_once('./includes/footer.php');
+get_footer();
 
 
 
 ?>
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/custom.js"></script>
   </body>

@@ -1,11 +1,9 @@
 <?php
-require_once('./includes/header.php');
-require_once('./includes/Sidebar.php');
-require_once('./includes/main.php');
-require_once('./includes/footer.php');
-
-
-
+require_once('./includes/function/function.php');
+get_header();
+get_sideber();
+get_main();
+get_footer();
 ?>
 
  
