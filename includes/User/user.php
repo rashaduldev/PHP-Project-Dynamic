@@ -1,3 +1,13 @@
+<?php 
+
+$id=$_GET['v'];
+$sel="SELECT * FROM users WHERE user_id='$id'";
+$Q=mysqli_query($con,$sel);
+$data=mysqli_fetch_assoc($Q);
+
+?>
+
+
 <div class="col-md-10 content">
                     <div class="row">
                         <div class="col-md-12 breadcumb_part">
@@ -30,22 +40,22 @@
                                           <tr>
                                             <td>Name</td>  
                                             <td>:</td>  
-                                            <td>Saidul Islam Uzzal</td>  
+                                            <td><?= $data['user_name']; ?></td>  
                                           </tr>
                                           <tr>
                                             <td>Phone</td>  
                                             <td>:</td>  
-                                            <td>01710726035</td>  
+                                            <td><?= $data['user_phone']; ?></td>  
                                           </tr>
                                           <tr>
                                             <td>Email</td>  
                                             <td>:</td>  
-                                            <td>uzzalbd.creative</td>  
+                                            <td><?= $data['user_email']; ?></td>  
                                           </tr>
                                           <tr>
                                             <td>Username</td>  
                                             <td>:</td>  
-                                            <td>uzzalbd</td>  
+                                            <td><?= $data['user_username']; ?></td>  
                                           </tr>
                                           <tr>
                                             <td>Role</td>  

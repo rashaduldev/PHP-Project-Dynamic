@@ -11,13 +11,16 @@ if (!empty($_POST)) {
   $username=$_POST['username'];
   $pw=md5($_POST['pass']);
   $rpw=md5($_POST['repass']);
+  $image=$_FILES['pic'];
+
+  $image='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
 
   $insert="INSERT INTO users(user_name,user_phone,user_email,user_username,user_password) 
   VALUES('$name', '$phone','$email', '$username','$pw')";
 
- if (!empty($name)) {
-  if (!mysqli_query($con,$insert)) {
-    echo"User Registation Feild";
+ if (empty($name)) {
+  if (mysqli_query($con,$insert)) {
+    echo"User Registation success";
  } else {
   echo '<script>alert("Please enter Your Fulfill details");</script>';
   // echo"enter your name";
