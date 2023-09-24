@@ -44,7 +44,9 @@
                               <div class="card-body">
                                 <table class="table table-bordered table-striped table-hover custom_table">
                                   <thead class="table-dark">
+                                    
                                     <tr>
+                                    <th>Id</th>
                                       <th>Name</th>
                                       <th>Phone</th>
                                       <th>Email</th>
@@ -56,17 +58,20 @@
                                   <tbody>
 
                                   <?php 
-                                  $sel="SELECT * FROM users";
+                                  $i=1;
+                                  $sel="SELECT * FROM users ORDER BY user_id DESC";
                                   $Q=mysqli_query($con,$sel);
                                   while ($data=mysqli_fetch_assoc($Q)) {
+                                    $id = $i <= 9 ? '0' . $i : $i;
                                    
                                   
                                   ?>
                                     <tr>
-                                      <td>Saidul Islam Uzzal</td>
-                                      <td>01710726035</td>
-                                      <td>uzzalbd.creative@gmail.com</td>
-                                      <td>uzzalbd</td>
+                                    <td><?= $id ?></td>
+                                      <td><?php echo $data['user_name']; ?></td>
+                                      <td><?php echo $data['user_phone']; ?></td>
+                                      <td><?php echo $data['user_email'] ?></td>
+                                      <td><?php echo $data['user_username'] ?></td>
                                       <td>---</td>
                                       <td>
                                           <div class="btn-group btn_group_manage" role="group">
@@ -79,41 +84,12 @@
                                           </div>
                                       </td>
                                     </tr>
-                                    <?php  } ?>
-                                    <tr>
-                                      <td>Creative System Limited</td>
-                                      <td>01966999777</td>
-                                      <td>creative@gmail.com</td>
-                                      <td>creative</td>
-                                      <td>---</td>
-                                      <td>
-                                          <div class="btn-group btn_group_manage" role="group">
-                                            <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
-                                            <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item" href="#">View</a></li>
-                                              <li><a class="dropdown-item" href="#">Edit</a></li>
-                                              <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                          </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Shahin Alom</td>
-                                      <td>01725191028</td>
-                                      <td>shahin@gmail.com</td>
-                                      <td>shahin</td>
-                                      <td>---</td>
-                                      <td>
-                                          <div class="btn-group btn_group_manage" role="group">
-                                            <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
-                                            <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item" href="#">View</a></li>
-                                              <li><a class="dropdown-item" href="#">Edit</a></li>
-                                              <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                          </div>
-                                      </td>
-                                    </tr>
+                                      <?php
+                                        $i++;
+                                    }?>
+                                   
+                                   
+                                  
                                   </tbody>
                                 </table>
                               </div>
